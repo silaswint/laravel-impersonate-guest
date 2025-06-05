@@ -13,7 +13,7 @@ composer require silaswint/laravel-impersonate-guest
 If you want to publish the config file, run this command:
 
 ```bash
-ddev artisan impersonate-guest:install 
+artisan impersonate-guest:install 
 ```
 
 Add this interface to your User Model:
