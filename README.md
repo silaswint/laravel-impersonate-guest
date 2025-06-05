@@ -43,6 +43,19 @@ protected $middlewareGroups = [
 # Usage
 Now you can impersonate a guest by visiting the route /impersonate-guest-start and stop impersonating by visiting /impersonate-guest-end.
 
+In your middleware which is responsible for redirecting to the login page, you can check if the user is impersonating a guest:
+
+```php
+    public function handle($request, Closure $next)
+    {
+        if (auth()->check() || isImpersonatingGuest()) {
+            return $next($request);
+        }
+
+        return redirect()->route('login');
+    }
+```
+
 # Customization
 If you want to build your own UI, you can use the following example:
 
